@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/otp_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:elevation="4dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/baseline_play_circle_filled_24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="@string/app_name"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/otp_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/otp_toolbar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Otp Verification"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/otp_edit_text"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_text_view"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:hint="OTP"
+        android:maxLength="4"
+        android:textColorHint="@color/black"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/otp_edit_text"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/button"
+        android:text="@string/verify_otp"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

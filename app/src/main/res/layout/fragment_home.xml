@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".HomeFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/h_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:title= ""
+            app:titleMarginStart="30dp"
+            app:titleTextColor="@color/black">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_play_circle_filled_24"
+                android:layout_gravity="left"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/invite"
+                android:layout_gravity="left"/>
+            <TextView
+                android:id="@+id/invite"
+                android:layout_width="65dp"
+                android:layout_height="32dp"
+                android:text="@string/invite"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/invite_background"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/invite"
+                android:layout_gravity="right"/>
+            <ImageView
+                android:id="@+id/search_home"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/baseline_search_24"
+                android:layout_gravity="right"/>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/h_appbar"
+            android:fadingEdge="vertical|horizontal"
+            android:fadingEdgeLength="50dp"
+            android:requiresFadingEdge="vertical|horizontal"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>

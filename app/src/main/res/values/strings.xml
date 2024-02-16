@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">C App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search</string>
+    <string name="home_label">Home</string>
+    <string name="invite">INVITE</string>
+    <string name="term">Managing your mobile app — and its users — shouldn’t feel like herding cats.
+        But as an app owner or developer, you’ve likely experienced abusive users who try to take advantage of your product or find yourself responding to the same customer questions over and over again.
+        A mobile app terms and conditions agreement is a powerful solution to help you:
+        Limit your liabilities
+
+        Answer common questions about your protocols, guidelines, and user expectations
+        Protect your intellectual property
+        Minimize legal disputes
+        Establish rules that users must follow while accessing your services
+
+        Post necessary disclaimers and warranties
+
+        This guide explains what mobile app terms and conditions are, how they benefit you and your users, and highlights real-world examples of other apps’ terms to inspire you when you make your own.
+        When you’re ready, download our free app terms and conditions template below to make an agreement for your app in minutes.Managing your mobile app — and its users — shouldn’t feel like herding cats.
+        But as an app owner or developer, you’ve likely experienced abusive users who try to take advantage of your product or find yourself responding to the same customer questions over and over again.
+        A mobile app terms and conditions agreement is a powerful solution to help you:
+        Limit your liabilities
+        Answer common questions about your protocols, guidelines, and user expectations
+        Protectyour intellectual property
+        Minimize legal disputes
+        Establish rules that users must follow while accessing your services
+        Post necessary disclaimers and warranties
+
+        This guide explains what mobile app terms and conditions are, how they benefit you and your users, and highlights real-world examples of other apps’ terms to inspire you when you make your own.
+
+        When you’re ready, download our free app terms and conditions template below to make an agreement for your app in minutes.
+        Managing your mobile app — and its users — shouldn’t feel like herding cats.
+
+        But as an app owner or developer, you’ve likely experienced abusive users who try to take advantage of your product or find yourself responding to the same customer questions over and over again.
+
+        A mobile app terms and conditions agreement is a powerful solution to help you:
+
+        Limit your liabilities
+        Answer common questions about your protocols, guidelines, and user expectations
+
+        Protect your intellectual property
+        Minimize legal disputes
+        Establish rules that users must follow while accessing your services
+
+        Post necessary disclaimers and warranties
+
+        This guide explains what mobile app terms and conditions are, how they benefit you and your users, and highlights real-world examples of other apps’ terms to inspire you when you make your own.
+        When you’re ready, download our free app terms and conditions template below to make an agreement for your app in minutes.Managing your mobile app — and its users — shouldn’t feel like herding cats.
+
+
+        But as an app owner or developer, you’ve likely experienced abusive users who try to take advantage of your product or find yourself responding to the same customer questions over and over again.
+
+
+        A mobile app terms and conditions agreement is a powerful solution to help you:
+
+
+        Limit your liabilities
+
+        Answer common questions about your protocols, guidelines, and user expectations
+
+        Protect your intellectual property
+        Minimize legal disputes
+        Establish rules that users must follow while accessing your services
+        Post necessary disclaimers and warranties
+        This guide explains what mobile app terms and conditions are, how they benefit you and your users, and highlights real-world examples of other apps’ terms to inspire you when you make your own.
+        When you’re ready, download our free app terms and conditions template below to make an agreement for your app in minutes.</string>
+    <string name="agree_terms">I Agree to our terms and Conditions</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="download">Download</string>
+    <string name="reactions">Reactions</string>
+
+    <string name="location_screen_text">Select your City \n And Explore nearby circles</string>
+    <string name="search_location_manually">Search by Location</string>
+    <string name="choose_location">Choose Location Manually</string>
+    <string name="select_state">Select Your State</string>
+
+    <string name="create_your_account">Create Your Account</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="verify_otp">Verify</string>
+
+    <string name="general_news">General News</string>
+    <string name="corona_update">Corona Update</string>
+    <string name="politics">Politics</string>
+    <string name="police_station">Police Station</string>
+    <string name="state_update">State Update</string>
+    <string name="local_update">Local Update</string>
+    <string name="education">Education</string>
+
+    <string name="app_language">App Language \n0.0.1</string>
+    <string name="app_version">App Version</string>
+
+    <string name="submit">Submit</string>
+    <string name="post">Post</string>
+    <string name="edit_post">Edit Post</string>
+
+    <string name="upload_image">Upload Image</string>
+    <string name="upload_video">Upload Video</string>
+    <string name="upload_thumbnail">Upload Thumbnail</string>
+    <string name="post_hint">What do you want to share?</string>
+
+    <string name="notificaton">Notification</string>
+    <string name="account_label">Account</string>
+    <string name="settings">Settings</string>
+    <string name="terms_conditions">Terms And Condition</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="logout">Log Out</string>
+    <string name="profile_image">profile_logo</string>
+    <string name="navigation_drawer_open">Open_Drawer</string>
+    <string name="navigation_drawer_close">Close_Drawer</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="edit_image">Edit Image</string>
+    <string name="username_label">Username</string>
+    <string name="phone_label">Phone</string>
+    <string name="DOB_label">Date Of Birth</string>
+    <string name="gender_label">Gender</string>
+    <string name="about_label">About Me</string>
+    <string name="state_label">State</string>
+    <string name="city_label">City</string>
+    <string name="tehsil_label">Tehsil</string>
+    <string name="save">Save</string>
+    <string name="love">hey</string>
+</resources>

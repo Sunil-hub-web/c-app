@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/term_nav_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:titleTextColor="@color/black"
+        app:title="@string/terms_conditions"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <ScrollView
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_terms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:text="@string/term"
+                tools:text="@string/term" />
+
+
+            <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_gravity="right"
+                android:textStyle="italic"
+                android:textColor="#3F51B5"
+                android:text="Privacy Policy" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

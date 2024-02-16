@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/general_news"
+        android:title="General News" />
+    <item
+        android:id="@+id/corona_update"
+        android:title="Corona Update" />
+    <item
+        android:id="@+id/politics"
+        android:title="Politics" />
+    <item
+        android:id="@+id/police_station"
+        android:title="Police Station" />
+    <item
+        android:id="@+id/state_update"
+        android:title="State Update" />
+    <item
+        android:id="@+id/local_update"
+        android:title="Local Update" />
+    <item
+        android:id="@+id/education"
+        android:title="Education" />
+</menu>
