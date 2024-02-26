@@ -82,10 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/h_appbar"
-            android:fadingEdge="vertical|horizontal"
-            android:fadingEdgeLength="50dp"
-            android:requiresFadingEdge="vertical|horizontal"/>
+            app:layout_constraintTop_toBottomOf="@+id/h_appbar"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 

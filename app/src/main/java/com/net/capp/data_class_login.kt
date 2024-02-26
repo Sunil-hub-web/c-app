@@ -4,7 +4,12 @@ data class data_class_login(
     val name : String,
     val phone : String,
     val state_id : String,
-    val city_id : String
+    val city_id : String,
+    val device : Device
+)
+data class Device(
+    val userId : String,
+    val pushToken : String,
 )
 
 data class data_class_verifyOtp(

@@ -1,16 +1,17 @@
 package com.net.capp
 
 import SharedPref
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.health.connect.datatypes.units.Volume
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.AsyncTask
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -23,29 +24,23 @@ import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.FileProvider
-import androidx.media3.common.C.VolumeFlags
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
-import androidx.media3.common.Player
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import io.reactivex.annotations.NonNull
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
-import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
+
 
 class HomeAdapter(private var dataList: MutableList<dataHomeItem>, private val context: Context) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
@@ -54,6 +49,9 @@ class HomeAdapter(private var dataList: MutableList<dataHomeItem>, private val c
     private var currentPlayingPlayer: ExoPlayer? = null
     private var currentlyPlayingPosition: Int = -1
     private var Player: ExoPlayer? = null
+
+    var DURATION: Long = 500
+    private var on_attach = true
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -64,6 +62,8 @@ class HomeAdapter(private var dataList: MutableList<dataHomeItem>, private val c
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val data = dataList[position]
         holder.bind(data,context)
+
+        setAnimation(holder.itemView, position);
     }
 
     override fun onViewDetachedFromWindow(holder: HomeViewHolder) {
@@ -81,6 +81,34 @@ class HomeAdapter(private var dataList: MutableList<dataHomeItem>, private val c
     }
 
     override fun getItemCount(): Int = dataList.size
+
+    private fun setAnimation(itemView: View, i: Int) {
+        var i = i
+        if (!on_attach) {
+            i = -1
+        }
+        val isNotFirstItem = i == -1
+        i++
+        itemView.alpha = 0f
+        val animatorSet = AnimatorSet()
+        val animator = ObjectAnimator.ofFloat(itemView, "alpha", 0f, 0.5f, 1.0f)
+        ObjectAnimator.ofFloat(itemView, "alpha", 0f).start()
+        animator.startDelay = if (isNotFirstItem) DURATION / 1 else i * DURATION / 2
+        animator.duration = 2000
+        animatorSet.play(animator)
+        animator.start()
+    }
+
+    override fun onAttachedToRecyclerView(@NonNull recyclerView: RecyclerView) {
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(@NonNull recyclerView: RecyclerView, newState: Int) {
+                Log.d(TAG, "onScrollStateChanged: Called $newState")
+                on_attach = false
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        })
+        super.onAttachedToRecyclerView(recyclerView)
+    }
 
     inner class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

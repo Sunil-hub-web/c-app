@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("useriddata12",myUserId)
                 Log.d("useriddata14",androidID)
 
-                pushfcmdata(myUserId, androidID, token)
+                //pushfcmdata(myUserId, androidID, token)
             }
     }
 

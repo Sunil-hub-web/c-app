@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
 import androidx.media3.datasource.DefaultDataSource
@@ -25,6 +26,7 @@ import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.PlayerView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -69,7 +71,8 @@ class PostActivity : AppCompatActivity() {
     lateinit var edittextPost: EditText
     lateinit var selectImage : LinearLayout
     lateinit var selectVideo : LinearLayout
-    lateinit var uri: ArrayList<Uri>
+    lateinit var showdata : ConstraintLayout
+    var uri: ArrayList<Uri> = ArrayList()
     lateinit var uri1: ArrayList<Uri>
     lateinit var uriVideo: Uri
     lateinit var userId: String
@@ -148,8 +151,7 @@ class PostActivity : AppCompatActivity() {
         vid.setOnClickListener {
             player?.play()
         }
-        videoUpload()
-
+        //videoUpload()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -172,6 +174,7 @@ class PostActivity : AppCompatActivity() {
         img0 = findViewById(R.id.postImage0)
         showimageRecycler = findViewById(R.id.showimageRecycler)
         lin_showimage = findViewById(R.id.lin_showimage)
+        showdata = findViewById(R.id.showdata)
 
 
         vid = findViewById(R.id.postVideo0)
@@ -192,17 +195,32 @@ class PostActivity : AppCompatActivity() {
 
             val comment = edittextPost.text.toString()
 
-            if (comment.length > 0){
+            if (uri.isEmpty()){
 
-                uri1 = adapter.getImageArray()
+                if (comment.length > 0){
 
-                Log.d("adapterimagearray",uri1.toString())
+                    videoUpload()
 
-                uploadImages(uri1)
 
+                }else{
+
+                    Toast.makeText(this@PostActivity, "Please give text input!", Toast.LENGTH_SHORT).show()
+                }
             }else{
 
-                Toast.makeText(this@PostActivity, "Please give text input!", Toast.LENGTH_SHORT).show()
+                if (comment.length > 0){
+
+                    uri1 = adapter.getImageArray()
+
+                    Log.d("adapterimagearray",uri1.toString())
+
+                    uploadImages(uri1)
+
+                }else{
+
+                    Toast.makeText(this@PostActivity, "Please give text input!", Toast.LENGTH_SHORT).show()
+                }
+
             }
 
             //post(userId,districtId)
@@ -211,7 +229,7 @@ class PostActivity : AppCompatActivity() {
 
     }
 
-    private fun videoUpload(){
+    private fun videoUpload() {
         val progressDialog = Dialog(this)
         progressDialog.setCancelable(false)
         progressDialog.setCanceledOnTouchOutside(false)
@@ -244,8 +262,22 @@ class PostActivity : AppCompatActivity() {
             video = response.toString()
             Log.d("videoff", video)
             progressDialog.dismiss()
+
+            if (response.contains(".mp4")){
+//                val snackbar = Snackbar.make(showdata, "Video Upload Success", Snackbar.LENGTH_LONG)
+//                snackbar.show()
+
+                post(userId,districtId)
+               // finish()
+            }else{
+
+                val snackbar = Snackbar.make(showdata, "Video Not Upload", Snackbar.LENGTH_LONG)
+                snackbar.show()
+            }
+
         }
     }
+
 
     private fun getFileNameFromUri(context: Context, uri: Uri): String {
         val cursor = context.contentResolver.query(uri, null, null, null, null)
@@ -403,7 +435,7 @@ class PostActivity : AppCompatActivity() {
                         Log.d("exception27", "xyz")
                        // progressDialog.dismiss()
 
-                        Toast.makeText(this@PostActivity, body.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PostActivity, "Data Upload Success", Toast.LENGTH_SHORT).show()
 
                         finish()
 

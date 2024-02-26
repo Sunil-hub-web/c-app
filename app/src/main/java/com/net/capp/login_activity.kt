@@ -4,12 +4,14 @@ import SharedPref
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.messaging.FirebaseMessaging
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +22,9 @@ class login_activity : AppCompatActivity() {
     lateinit var edtName : EditText
     lateinit var edtNum : EditText
     lateinit var submit : AppCompatButton
+    val TAG = "ContentValues"
+    lateinit var androidID : String
+    lateinit var token : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,7 @@ class login_activity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
+        getFcmToken()
 
         edtName = findViewById(R.id.edtName)
         edtNum = findViewById(R.id.edtPhone)
@@ -79,7 +85,8 @@ class login_activity : AppCompatActivity() {
             .build()
 
         val apiService = retrofit.create(ApiInterface::class.java)
-        val sendOtpRequest = data_class_login(name, num, stateId, cityId)
+        var device = Device(androidID, token)
+        val sendOtpRequest = data_class_login(name, num, stateId, cityId, device)
         val response = apiService.sendOtp(sendOtpRequest)
 
         response.enqueue(object: Callback<OtpResponce>{
@@ -106,6 +113,37 @@ class login_activity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun getFcmToken() {
+
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task ->
+                // this fail
+                if (!task.isSuccessful) {
+                    Log.d(
+                        TAG,
+                        "Fetching FCM registration token failed",
+                        task.exception
+                    )
+                    return@addOnCompleteListener
+                }
+                //this token
+                token = task.result
+                Log.d(TAG, token)
+                //to showing
+                // binding!!.token.setText(token)
+                //Toast.makeText(this@MainActivity, "get a token", Toast.LENGTH_SHORT).show()
+
+                SharedPref.initialize(this)
+                val myUserId = SharedPref.getUserId().toString()
+
+                androidID = Settings.Secure.getString(this@login_activity.getContentResolver(), Settings.Secure.ANDROID_ID);
+
+                Log.d("useriddata12",myUserId)
+                Log.d("useriddata14",androidID)
+
+            }
     }
 
 }
